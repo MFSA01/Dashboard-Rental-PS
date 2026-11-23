@@ -1,0 +1,9 @@
+# Blokir akses langsung via browser ke file konfigurasi.
+# File ini hanya boleh di-include oleh PHP di sisi server.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

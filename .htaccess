@@ -1,0 +1,15 @@
+# Davin's Gaming Space — root directory
+
+# Jangan tampilkan isi direktori.
+Options -Indexes
+
+# Blokir akses ke file markdown dan SQL di root.
+<FilesMatch "\.(md|sql|log|ini|sh|bat)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
